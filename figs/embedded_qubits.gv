@@ -1,0 +1,45 @@
+graph {
+	rankdir=LR;
+	subgraph cluster_0 {
+		style=dashed;
+		#style=rounded;		
+		fontname = "times bold italic"
+		label=<Q<SUB>1</SUB>>;
+		q1[label=<q<SUB>1</SUB>>];
+		q2[label=<q<SUB>2</SUB>>];
+		q3[label=<q<SUB>3</SUB>>];
+		q4[label=<q<SUB>4</SUB>>];		
+	}
+	subgraph cluster_1 {
+		style=dashed;
+		fontname = "times bold italic"
+		label=<Q<SUB>2</SUB>>;
+		q5[label=<q<SUB>5</SUB>>];
+		q6[label=<q<SUB>6</SUB>>];		
+	}
+	subgraph cluster_2 {
+		style=dashed;
+		fontname = "times bold italic"		
+		label=<Q<SUB>3</SUB>>;
+		q7[label=<q<SUB>7</SUB>>];
+		q8[label=<q<SUB>8</SUB>>];		
+	}
+	subgraph cluster_3 {
+		style=dashed;
+		fontname = "times bold italic"		
+		label=<Q<SUB>4</SUB>>;
+		q9[label=<q<SUB>9</SUB>>];
+		q10[label=<q<SUB>10</SUB>>];
+		q11[label=<q<SUB>11</SUB>>];		
+	}
+	# "Logical" links
+	q1 -- q7[label=<B<SUB>13</SUB>>,color=blue,penwidth=2.0,weight=1];
+	q4 -- q5[label=<B<SUB>12</SUB>>,color=blue,penwidth=2.0];	
+	q6 -- q11[label=<B<SUB>24</SUB>>,color=blue,penwidth=2.0];
+	q8 -- q9[label=<B<SUB>34</SUB>>,color=blue,penwidth=2.0];	
+	# "Chaining" link
+	q1 -- q2 -- q3 -- q4[color=red,style=dashed,penwidth=1.0];	
+	q5 -- q6[color=red,style=dashed,penwidth=1.0];
+	q7 -- q8[color=red,style=dashed,penwidth=1.0];
+	q9 -- q10 -- q11[color=red,style=dashed,penwidth=1.0];
+}

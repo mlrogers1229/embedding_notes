@@ -1,0 +1,14 @@
+graph {
+	rankdir=LR;
+	fontname = "times bold italic"
+	# nodes	
+	Q1[fontname = "times bold italic",label=<Q<SUB>1</SUB>>];
+	Q2[fontname = "times bold italic",label=<Q<SUB>2</SUB>>];
+	Q3[fontname = "times bold italic",label=<Q<SUB>3</SUB>>];
+	Q4[fontname = "times bold italic",label=<Q<SUB>4</SUB>>];
+	# "Logical" links
+	Q1 -- Q2[label=<B<SUB>12</SUB>>,color=blue,penwidth=2.0,weight=1];
+	Q1 -- Q3[label=<B<SUB>13</SUB>>,color=blue,penwidth=2.0,weight=1];
+	Q2 -- Q4[label=<B<SUB>24</SUB>>,color=blue,penwidth=2.0,weight=1];
+	Q3 -- Q4[label=<B<SUB>34</SUB>>,color=blue,penwidth=2.0,weight=1];
+}
