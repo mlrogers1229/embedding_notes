@@ -695,7 +695,7 @@ the standard SAPI approach as,
   \label{standardweight}   
   a^t_r &=& A_t/N_t \\
   \label{standardstrength}  
-  b^{r,s}_{i ,j} &=& \left\{ \begin{array}{11} 
+  b^{r,s}_{i ,j} &=& \left\{ \begin{array}{11}  
              B_{r,s}/\nu_{r,s},  & \mbox{if $q_i \in Q_r$ and $q_j \in Q_s$} \\
              0,        & \mbox{otherwise}                 
              \end{array} \\  
@@ -830,203 +830,44 @@ in equations~\ref{standardweight}, giving,
 %
 \begin{eqnarray}
   a^t_r = \frac{A_t}{N_t} + \alpha \times \frac{(N_t-1)}{N_t}.
-  \label{newwieght}
+  \label{newweight}
 \end{eqnarray}
-\pagebreak
+%\pagebreak
 
-% \subsubsection{Example}
-% The new Hamiltonian, in terms of physical qubits is now,
-% %
-% \begin{eqnarray}
-%   H^\sm{P}= a \, q_1 + a\, q_6 + 2 b_{16} \, q_1 q_6
-%   \ 
-% \end{eqnarray}
-% %
-
-% %
-% \begin{figure}[h!]
-% \begin{minipage}[c]{0.4\linewidth}
-% \includegraphics[scale=0.25]{figs/QiQjQchain.png}
-% %\caption{Image A}
-% \end{minipage}
-% \hfill
-% \begin{minipage}[c]{0.48\linewidth}
-% \includegraphics[scale=0.30]{figs/linear_chain.png}
-% %\caption{Image B}
-% \end{minipage}
-% \vskip-1.0cm
-% \caption{\footnoteskip
-% Generalization of Fig.~\ref{fig_linear_chain_a} to a chain of $N$ linear 
-% qubits. 
-% %The left panel illustrates the chaining of three logical qubits $Q_i$, $Q_k$ 
-% %and $Q_j$ into a linear chain of $N$ physical qubits. 
-% The right panel illustrates the chain coupling parmeters used to create strict 
-% correlations of the physical qubits within the chain. 
-% }
-% \label{fig_linear_chain_b}
-% \end{figure}
-% %
-% The double lines in  Figs.~\ref{fig_K4_embedding_1} and \ref{fig_linear_chain_a} indicate 
-% that two qubits are chained together. %For example $q_1$ and $q_6$ are chained. 
-% This means that the qubits are strictly correlated, {\em i.e.} when $q_1$ is up then 
-% $q_6$ is up, and when $q_1$ is down then $q_6$ is down. This is accomplished by 
-% choosing the coupling strength $b_{16}$ to favor a strict correlation; however, 
-% to preserve the ground state energy, this also requires shifting the weights for $q_1$
-% and $q_6$. 
-% %That is to say, the energy is lower for correlated qubits and higher for anti-correlated qubits. 
-% For $q_1=q_6=0$ we have $H^\smCT=0$. We wish to preserve this condition when $q_1=
-% q_6=1$, which means $2 a + 2 b = 0$. Furthermore, the state $q_1=1$ and $q_6=0$ must 
-% have positive energy, which means $a > 0$. Similarly for $q_1=0$ and $q_6=1$. We therefore 
-% choose $a_1 = a_6 = \alpha >0$ and $b_{16} = -\alpha$, where $\alpha$ is an arbitrary
-% parameter. This is illustrated in  Table.~\ref{table_HCT_spectrum_2}.
-% %
-% \begin{table}[t!]
-% \caption{\footnoteskip 
-%   For two qubits the counter-term Hamiltonian is $H^{\smCT}(q_1, q_6) = a\,  q_1 + a\,  
-%   q_6 + 2 b\,  q_1 q_6$. The lowest energy state is preserved for $b = - \alpha$  and 
-%   $a = \alpha$ where $\alpha > 0$. We will split the weight $A_t$ uniformly across the 
-%   $N$ chained physical qubits, thereby giving a contribution to the physical Hamiltonian  
-%   $H_{16}^t  = A_t / 2 + \alpha\,  q_1 + \alpha\,  q_6 - 2 \alpha\,  q_1 q_6$. The energy
-%   spectrum ensures that the two qubits are strictly correlated. 
-% }
-% \vskip0.3cm
-% \begin{tabular}{|c|c||l|} \hline
-%    ~$q_1$~    & ~$q_6$~    & ~$H^{\smCT}$~  \\\hline
-%    0 & 0 & \,0 \\[-8pt]
-%    0 & 1 & \,$\alpha$ \, \\[-8pt]
-%    1 & 0 & \,$\alpha$ \,  \\[-8pt]
-%    1 & 1 & \,0  \\ \hline
-% \end{tabular} 
-% \label{table_HCT_spectrum_2}
-% \end{table}
-% %
-% A more complicated case is the linear chain of $N$ qubits as shown in 
-% Fig.~\ref{fig_linear_chain_b}. The counter-term Hamiltonian is taken to be
-% %
-% \begin{eqnarray}
-%   H^\smCT = \sum_{m=1}^N a_m^t \, q^t_m + \sum_{m=1}^{N-1} b_{m, m+1}^t \,
-%    q_m^t q_{m+1}^t
-%   \ .
-% \label{eq_ct_N}
-% \end{eqnarray}
-% %
-% Note that $H^\smCT$ vanishes when $q_m=0$ for all $m=1 \cdots N$. And conversely, we
-% must arrange the counter-term to vanish when $q_m=1$. The simplest choice is to take 
-% all weights to be the same and all couplings to be identical. Then, to preserve the ground
-% state when the $q_r=1$, we impose
-% %
-% \begin{eqnarray}
-%   a^t_r = \frac{A_t}{N} + \frac{2(N-1)}{N} \, \alpha
-%   \\[8pt]
-%   b^t_{r ,r+1} = - \alpha
-% \label{eq_name}
-% \end{eqnarray}
-% %
-% with $\alpha > 0$ and $r=1 \cdots  N$. The first term in $a^t_r$ distributes the 
-% weight $A_t$ uniformly across all $N$ nodes in the chain. The second set  
-% of terms $b^t_{r, r+1}$ ensures that the qubits of the chain are strictly correlated. 
-% The counter-term energy is positive and is therefore selected against when the linearly 
-% chained qubits are not correlated. 
-% Table~\ref{table_HCT_spectrum_3} illustrates the spectrum of the counter-term 
-% Hamiltonian for three qubits.  We often need to choose large
-% values of $\alpha$, of order 20 or more, to sufficiently separate the 
-% states. The uniform spectrum of 4 states with $H^{\smCT}=a$ in 
-% Table~\ref{table_HCT_spectrum_3} arises from a permutation 
-% symmetry in $q_1$, $q_2$, $q_3$.
-% %
-% \begin{table}[h!]
-% \caption{\footnoteskip 
-%   For a three qubit chain the counter-term Hamiltonian is 
-%   $H^{\smCT}(q_1, q_2, q_3) = a\,  q_1 + a\,  q_2 + a\,  q_3 + 
-%   2 b\,  q_1 q_2 + 2 b\,  q_2 q_3$, where $a=4 \alpha/3$ and
-%   $b=-\alpha$. The degeneracy in energy of value $a$ arises 
-%   from a permutation symmetry in $q_1 \to q_2 \to q_3$ that 
-%   preserves the form of the counter-term Hamiltonian. 
-% }
-% \vskip0.3cm
-% \begin{tabular}{|c|c|c||c|l|} \hline
-%   ~$q_1$~  &  ~$q_2$~ & ~$q_3$~ & ~$H^\smCT$ & ~ \\\hline
-%    0 & 0 & 0 & 0  & ~0~\\[-8pt] 
-%    0 & 0 & 1 & ~$4\alpha/3$~ & ~$a$~ \\[-8pt] 
-%    0 & 1 & 0 & ~$4\alpha/3$~ & ~$a$~\\[-8pt] 
-%    0 & 1 & 1 & ~$2\alpha/3$~ & ~$a/2$~ \\[-8pt] 
-%    1 & 0 & 0 & ~$4\alpha/3$~ & ~$a$~ \\[-8pt] 
-%    1 & 0 & 1 & ~$8\alpha/3$~ & ~$2a$~ \\[-8pt] 
-%    1 & 1 & 0 & ~$2\alpha/3$~ & ~$a$~ \\[-8pt] 
-%    1 & 1 & 0 & 0 & ~0~ \\\hline
-% \end{tabular} 
-% \label{table_HCT_spectrum_3}
-% \end{table}
-% %
-
-% To review, note that a linear counter-term is represented in Fig.~\ref{fig_linear_chain_b}. 
-% We add a counter-term to break the logical qubits into a chain of physical qubits that 
-% preserve the ground state.
-% Let us consider the conditions that we place on the Hamiltonian  to
-% ensure strict correlation between the chained qubits. We adjust the values of $A_r$
-% and $B_{rs}$ to ensure that spin alignment is energetically favorable. By slaving several 
-% qubits together, we can overcome the limitations of the Chimera connectivity. 
-% As a more complex  example, consider the four logical qubits of 
-% Fig.~\ref{fig_logical_qubits} connected in a circular chains by strengths $B_{12}$, 
-% $B_{2 4}$, $B_{4 3}$, and $B_{3 1}$.  Suppose the weights are $A_1$, $A_2$
-% $A_3$ and $A_4$. Figure~\ref{fig_embedded_qubits} provides an example 
-% in which each logical qubit is chained in a linear fashion to the physical qubits. 
-% %
-% \begin{figure}[h!]
-% \includegraphics[scale=0.35]{figs/logical_qubits.png} 
-% \caption{\footnoteskip  
-% %
-% Four logical qubits $Q_1$, $Q_2$, $Q_3$, $Q_4$ in a circular loop
-% with connection strengths $B_{12}$, $B_{2 4}$ $B_{4 3}$ and $B_{3 1}$. 
-% %
-% }
-% \label{fig_logical_qubits}
-% \end{figure}
-% %
-% %
-% \begin{figure}[h!]
-% \includegraphics[scale=0.35]{figs/embedded_qubits.png} 
-% \caption{\footnoteskip  
-% %
-% A possible mapping of the logical qubits in Fig.~\ref{fig_logical_qubits} onto
-% the physical device. Each logical qubit is modeled by a linear chain of strictly 
-% correlated qubits.
-% %
-% }
-% \label{fig_embedded_qubits}
-% \end{figure}
-% %
-
-% %\subsection{Results}
-% %
-% %**a few examples that will in part illustrate how we choose $\alpha$.
-% %
-% %** Plot a few energy contours.  
-% %
-% %
-% %Question. How big does $C_{2n}$ have to be to contain $K_n$. Or maybe: 
-% %Given $K_n$, what is the smallest N so that$ C_{2N}$ contains $K_N$
-% %
-% %Specifically, will shall calculate the ratio $y/m$ for
-% %floating point numbers $m$ and $y$. Let us express the division problem by 
-% %the algebraic equation
-% %
-% %The fist task is to rewrite a matrix multiplication problem with floating point numbers 
-% %into a form corresponding to a QUBO Hamiltonian,  in which the minimum corresponds 
-% %to the solution of the matrix equation. 
-% %We take the corresponding objective function
-% %
-% \pagebreak
-
-
+\subsubsection{Example}
+We now illustrate the affect of applying the counter-term vs not applying the counter-term when embedding
+a Hamiltonian. The Hamiltonian in this is example is for solving a $2$-dimensional linear equation defined by
+an ill-conditioned 2x2 matrix. In such cases, the energy spectrum will have a large number of states packed
+close in energy to the ground state. The energy spectrum is plotted in Fig.~\ref{fig_energy}, below.
 
 %
-\pagebreak
-\begin{acknowledgments}
-We received funding for this work from the {\em ASC Beyond Moore’s Law Project} 
-at LANL.  
-\end{acknowledgments}
-%\pagebreak
+\begin{figure}[h!]
+\includegraphics[scale=0.8]{figs/energy.png} 
+\caption{\footnoteskip  
+%
+  The energy surface for a certain QUBO Hamiltonian. This is plotted for three cases:  (1) The unembedded original Hamiltonian,
+  in terms of ``logical'' qubits (blue); (2) the embedded Hamiltonian with the corrected weightings, from equation~\ref{newweight} (red),
+  and; (3) the embedded Hamiltonian without the corrected weightings (green).
+%
+}
+\label{fig_energy}
+\end{figure} 
+%
+Clearly, the correctly for inhomogeneous chain sizes matters a great deal. Note that, with the correction given by equation~\ref{newweight},
+the energy spectrum (summed over the chained qubits) is exactly equilvalent to the energy spectrum for the unchained (logical) Hamiltonian.
+However, without the correction added to the weights, there is a very significant difference. In fact, it changes the shape of the energy spectrum
+to such a degree that the lowest energy state is significantly different from the ground state energy of the unchained Hamiltonian, so that the
+uncorrected embeddiing could not be expected to yield the correct ground state for the original Hamiltonian with the embedded Hamiltonian on the
+D-Wave quantum annealer.
+
+
+%% %
+%% \pagebreak
+%% \begin{acknowledgments}
+%% We received funding for this work from the {\em ASC Beyond Moore’s Law Project} 
+%% at LANL.  
+%% \end{acknowledgments}
+%% %\pagebreak
 
 % %\vfill
 % \pagebreak
